@@ -29,7 +29,7 @@ export default class App extends Component {
           Show snackbar
         </button>
         {this.state.snackbar && (
-          <share.Snackbar message="hello" duration="3000" />
+          <share.Snackbar fadeIn="20" message="hello" duration="3000" />
         )}
         <button
           className="share-button share-accent-bg"
@@ -70,6 +70,17 @@ export default class App extends Component {
           dismissButtonText="dismiss"
           present={this.state.modal}
           onDismissClicked={() => this.setState({ modal: !this.state.modal })}
+        />
+        <share.Slide
+          heading="click me"
+          content={
+            <div>
+              <p>Hi</p>
+              <p>Toggle</p>
+              <p>This</p>
+              <p>Content!</p>
+            </div>
+          }
         />
       </div>
     );
