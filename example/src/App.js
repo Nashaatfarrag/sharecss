@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Loading from "share";
+import share from "share";
 import "./css/share.min.css";
 
 export default class App extends Component {
@@ -12,14 +12,14 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        {/* Loading Example
+        {/* Loading Example */}
         <button
           className="share-button share-accent-bg"
           onClick={() => this.setState({ loading: true })}
         >
           Show Loading
         </button>
-        <Loading present={this.state.loading} /> */}
+        <share.Loading present={this.state.loading} />
 
         <button
           className="share-button share-accent-bg"
@@ -27,13 +27,9 @@ export default class App extends Component {
         >
           Show snackbar
         </button>
-        <Loading
-          message="hello"
-          duration="3000"
-          present={this.state.snackbar}
-          onDurationEnd={() => this.setState({ snackbar: !this.state.snackbar })}
-
-        />
+        {this.state.snackbar && (
+          <share.Snackbar message="hello" duration="3000" />
+        )}
       </div>
     );
   }
