@@ -4,6 +4,7 @@ import Sidenav from './sidenav.jsx'
 import Modal from './modal.jsx'
 import Slide from './slide.jsx'
 import DropDown from './dropdown.jsx'
+import ScrollTo from './scrollTo.jsx'
 
 export default {
   Snackbar: Snackbar,
@@ -11,5 +12,6 @@ export default {
   Sidenav: Sidenav,
   Modal: Modal,
   Slide: Slide,
-  DropDown
+  DropDown,
+  ScrollTo
 }

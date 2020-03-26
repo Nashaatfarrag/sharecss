@@ -8,11 +8,12 @@ export default class App extends Component {
     loading: false,
     snackbar: false,
     sidenav: false,
-    modal: false
+    modal: false,
+    to: null
   };
 
-  handleItemChange= (item) =>{
-    console.log("changed", item)
+  handleItemChange= (item) => {
+    this.setState({to: Number(item) === NaN ? '3' : String(item)})
   }
   render() {
     return (
@@ -87,9 +88,18 @@ export default class App extends Component {
         />
 
         <share.DropDown
-          items={['one', 'two', 'three']}
-          textValue="menu"
+          items={['one', 'two', 'three', 'ffff']}
+          textValue='menu'
           onItemChange={(item) => this.handleItemChange(item)}
+          returnIndex={true}
+        />
+
+        <share.ScrollTo
+          duration={1500}
+          delay={100}
+          offset={0}
+          smooth={true}
+          to={this.state.to}
         />
       </div>
     )

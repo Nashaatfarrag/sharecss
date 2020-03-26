@@ -14,25 +14,38 @@ class DropDown extends Component {
         : ddlClass + 'enabled'
     })
   };
-  itemSelected= (item) => {
-    this.setState({ddlModel: item})
+  itemSelected = (item) => {
+    this.setState({ ddlModel: item })
     this.ddlToggle()
-    this.props.onItemChange(item);
-  }
+    if (this.props.returnIndex) {
+      this.props.onItemChange(this.props.items.indexOf(item))
+    } else {
+      this.props.onItemChange(item)
+    }
+  };
 
   render() {
-    const { items, textValue} = this.props
+    const { items, textValue } = this.props
     return (
       <React.Fragment>
         <div className={this.state.ddlClass}>
           <button
             className='share-button share-rounded share-dropdown-toggle share-primary-bg'
             onClick={this.ddlToggle}
-            data-toggle='dropdown'>{textValue}</button>
+            data-toggle='dropdown'
+          >
+            {textValue}
+          </button>
           <div className='share-dropdown-menu'>
-            {items.map((item) => (<a onClick={() => this.itemSelected(item)}
-              className='share-dropdown-menu-item'
-              key={item}>{item}</a>))}
+            {items.map((item) => (
+              <a
+                onClick={() => this.itemSelected(item)}
+                className='share-dropdown-menu-item'
+                key={item}
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </React.Fragment>
