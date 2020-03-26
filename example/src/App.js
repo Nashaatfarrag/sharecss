@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import share from "share";
-import "./css/share.min.css";
+import share from 'share'
+import './css/share.min.css'
 
 export default class App extends Component {
   state = {
@@ -11,68 +11,71 @@ export default class App extends Component {
     modal: false
   };
 
+  handleItemChange= (item) =>{
+    console.log("changed", item)
+  }
   render() {
     return (
       <div>
         {/* Loading Example */}
         <button
-          className="share-button share-accent-bg"
+          className='share-button share-accent-bg'
           onClick={() => this.setState({ loading: true })}
         >
           Show Loading
         </button>
         <share.Loading present={this.state.loading} />
         <button
-          className="share-button share-accent-bg"
+          className='share-button share-accent-bg'
           onClick={() => this.setState({ snackbar: !this.state.snackbar })}
         >
           Show snackbar
         </button>
         {this.state.snackbar && (
-          <share.Snackbar fadeIn="20" message="hello" duration="3000" />
+          <share.Snackbar fadeIn='20' message='hello' duration='3000' />
         )}
         <button
-          className="share-button share-accent-bg"
+          className='share-button share-accent-bg'
           onClick={() => this.setState({ sidenav: !this.state.sidenav })}
         >
           Show Navbar
         </button>
         <share.Sidenav
-          buttonText="close"
+          buttonText='close'
           present={this.state.sidenav}
           onDismissClicked={() =>
             this.setState({ sidenav: !this.state.sidenav })
           }
-          right="true"
-          insideText="Sed vel urna ac purus luctus convallis venenatis eget magna. Proin
+          right='true'
+          insideText='Sed vel urna ac purus luctus convallis venenatis eget magna. Proin
             vestibulum feugiat dictum. Duis vehicula, arcu vitae dapibus
             tincidunt, dui leo pulvinar nibh, a suscipit ex purus in sem. Fusce
             auctor tincidunt arcu. Integer placerat sem vel ipsum vehicula, vel
             luctus erat pretium. In egestas erat eros, in pellentesque orci
-            imperdiet ut. Suspendisse aliquam hendrerit risus a vestibulum."
+            imperdiet ut. Suspendisse aliquam hendrerit risus a vestibulum.'
         />
         <button
-          className="share-button share-accent-bg"
+          className='share-button share-accent-bg'
           onClick={() => this.setState({ modal: !this.state.modal })}
         >
           Show modal
         </button>
         <share.Modal
           content={
-            <div className="share-grid share-responsive">
-              <div className="share-gu-1-5 share-p-1">Hi</div>
-              <div className="share-gu-1-5 share-p-1">There</div>
-              <div className="share-gu-1-5 share-p-1">You</div>
-              <div className="share-gu-1-5 share-p-1">Big</div>
-              <div className="share-gu-1-5 share-p-1">Fella</div>
+            <div className='share-grid share-responsive'>
+              <div className='share-gu-1-5 share-p-1'>Hi</div>
+              <div className='share-gu-1-5 share-p-1'>There</div>
+              <div className='share-gu-1-5 share-p-1'>You</div>
+              <div className='share-gu-1-5 share-p-1'>Big</div>
+              <div className='share-gu-1-5 share-p-1'>Fella</div>
             </div>
           }
-          dismissButtonText="dismiss"
+          dismissButtonText='dismiss'
           present={this.state.modal}
           onDismissClicked={() => this.setState({ modal: !this.state.modal })}
         />
         <share.Slide
-          heading="click me"
+          heading='click me'
           content={
             <div>
               <p>Hi</p>
@@ -82,8 +85,13 @@ export default class App extends Component {
             </div>
           }
         />
-      
+
+        <share.DropDown
+          items={['one', 'two', 'three']}
+          textValue="menu"
+          onItemChange={(item) => this.handleItemChange(item)}
+        />
       </div>
-    );
+    )
   }
 }
