@@ -7,13 +7,13 @@ const Modal = props => {
   } else classes = "share-modal";
 
   return (
-    <div id="modal" class={classes}>
-      <div class="share-modal-content-wrapper">
-        <div class="share-p-3">
+    <div id="modal" className={classes}>
+      <div className="share-modal-content-wrapper">
+        <div className="share-p-3">
           <button
             id="close-modal-btn"
             onClick={props.onDismissClicked}
-            class="share-button share-outline share-rounded"
+            className="share-button share-outline share-rounded"
           >
             {props.dismissButtonText}
           </button>

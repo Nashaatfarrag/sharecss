@@ -59,12 +59,12 @@ export default class App extends Component {
         </button>
         <share.Modal
           content={
-            <div class="share-grid share-responsive">
-              <div class="share-gu-1-5 share-p-1">Hi</div>
-              <div class="share-gu-1-5 share-p-1">There</div>
-              <div class="share-gu-1-5 share-p-1">You</div>
-              <div class="share-gu-1-5 share-p-1">Big</div>
-              <div class="share-gu-1-5 share-p-1">Fella</div>
+            <div className="share-grid share-responsive">
+              <div className="share-gu-1-5 share-p-1">Hi</div>
+              <div className="share-gu-1-5 share-p-1">There</div>
+              <div className="share-gu-1-5 share-p-1">You</div>
+              <div className="share-gu-1-5 share-p-1">Big</div>
+              <div className="share-gu-1-5 share-p-1">Fella</div>
             </div>
           }
           dismissButtonText="dismiss"
@@ -82,6 +82,7 @@ export default class App extends Component {
             </div>
           }
         />
+      
       </div>
     );
   }

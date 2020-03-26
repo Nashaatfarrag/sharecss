@@ -6,25 +6,38 @@ class Slide extends Component {
   };
 
   render() {
-    //   let classes = []
-    // if (this.state.showContent) {
-    //     content = 
-    // }
+    let classes = [];
+    let style = {};
+    if (this.state.showContent) {
+      style = {
+        transition: `opacity 200ms `,
+        transition: `height 200ms `,
+        opacity: 1,
+        height: "146px"
+      };
+      classes = "share-slide-content content-on";
+    } else {
+      style = {
+        transition: `opacity 200ms ease-in-out`,
+        transition: `height 400ms `,
+        opacity: 0,
+        height: "0"
+      };
+      classes = "share-slide-content content-off";
+    }
+
     return (
-      <div class="share-slide">
+      <div className="share-slide enabled">
         <div
-          class="share-slide-heading"
+          className="share-slide-heading"
           onClick={() =>
             this.setState({ showContent: !this.state.showContent })
           }
         >
           {this.props.heading}
         </div>
-        <div class="share-slide-content enabled">
-        <p>Hi</p>
-          <p>Toggle</p>
-          <p>This</p>
-          <p>Content!</p>
+        <div className={classes} style={style}>
+          {this.props.content}
         </div>
       </div>
     );
